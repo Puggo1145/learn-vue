@@ -71,6 +71,7 @@ const changeEvent = () => {
 }
 
 .main-container section {
+  min-width: 120px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
