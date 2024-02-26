@@ -1,21 +1,17 @@
 <template>
-    <h4>Chapter 5 - v-for rendering</h4>
-    <MainContainer>
-        <Block>
-            <h4>v-for rendering</h4>
+    <Chapter number="5" container-title="v-for rendering">
+        <Block section-name="v-for rendering">
             <p>The scope of v-for is similar to JS</p>
             <ul>
                 <li v-for="(item, index) in list">{{ index + 1 }}: {{ item.message }}</li>
             </ul>
         </Block>
-        <Block>
-            <h4>direct deconstruction of v-for</h4>
+        <Block section-name="direct deconstruction of v-for">
             <ul>
                 <li v-for="({ message }) in list">{{ message }}</li>
             </ul>
         </Block>
-        <Block>
-            <h4>v-for of Object</h4>
+        <Block section-name="v-for of Object">
             <ul>
                 <li v-for="(value, key, index) in object">
                     {{ index }} - {{ key }}: {{ value }}
@@ -61,13 +57,13 @@
                 <li v-for="number in evenNumbersFn(numberArray)">{{ number }}</li>
             </ul>
         </Block>
-    </MainContainer>
+    </Chapter>
 </template>
 
 <script setup lang="ts">
 import { computed, ref } from 'vue';
+import Chapter from './common/chapter.vue'
 import Block from './common/block.vue'
-import MainContainer from './common/mainContainer.vue';
 import C5component from './innerComponent/C5component.vue';
 
 const list = ref([

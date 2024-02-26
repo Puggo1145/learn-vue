@@ -1,7 +1,9 @@
 <script setup lang="ts">
-const { sectionName } = defineProps({
-    sectionName: String
-})
+interface Props {
+    sectionName: string,
+    other?: unknown
+}
+const { sectionName } = defineProps<Props>()
 </script>
 
 <template>
@@ -12,4 +14,19 @@ const { sectionName } = defineProps({
 </template>
 
 
-<style scoped></style>
+<style scoped>
+section {
+  min-width: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #eee;
+}
+
+section:nth-child(3n),
+section:last-child {
+  flex: 1;
+}
+</style>

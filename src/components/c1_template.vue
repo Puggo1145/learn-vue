@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Chapter from './common/chapter.vue'
+import Block from './common/block.vue'
 import { ref } from 'vue';
 
 type standardObjStructure = Record<string, string | number> 
@@ -27,60 +29,33 @@ const changeEvent = () => {
 </script>
 
 <template>
-  <h1>Chapter1 - template</h1>
-  <div class="main-container">
-    <section class="counter">
-      <h4>counter</h4>
+  <Chapter number="1" container-title="template">
+    <Block section-name="counter">
       <h1>{{ count }}</h1>
       <button @click="increment">increase the number of count</button>
-    </section>
-    <section class="binder">
-      <h4>v-bind:disabled</h4>
+    </Block>
+    <Block section-name="v-bind:disabled">
       <button :disabled="isBtnDisabled" @click="console.log(isBtnDisabled)">button under control</button>
       <button @click="isBtnDisabled = !isBtnDisabled">change button usability</button>
-    </section>
-    <section class="AttributesBinder">
-      <h4>multi-attributes (open console)</h4>
+    </Block>
+    <Block section-name="multi-attributes (open console)">
       <p v-bind="bindMultiAttributes">This tag binds multiple attributes</p>
-    </section>
-    <section class="vIf">
-      <h4>v-if</h4>
+    </Block>
+    <Block section-name="v-if">
       <p v-if="visibility">This text is visible</p>
       <button @click="visibility = !visibility">change visibility</button>
-    </section>
-    <section class="dynamicAttributes">
-      <h4>v-bind:[attributeName]</h4>
+    </Block>
+    <Block section-name="v-bind:[attributeName]">
       <p>current: {{ eventName }}</p>
       <button @[eventName]="changeEvent">changeEvent</button>
-    </section>
-    <section class="deepTrackOfRef">
-      <h4>v-bind:[attributeName]</h4>
+    </Block>
+    <Block section-name="v-bind:[attributeName]">
       <p>{{ deepTrackOfRef.number }}</p>
       <button>change number in an object</button>
-    </section>
-  </div>
+    </Block>
+  </Chapter>
 </template>
 
 <style>
-.main-container {
-  width: 864px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
 
-.main-container section {
-  min-width: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px;
-  border-radius: 8px;
-  background-color: #eee;
-}
-
-section:nth-child(3n) {
-  flex: 1;
-}
 </style>

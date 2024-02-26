@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Chapter from './common/chapter.vue'
+import Block from './common/block.vue'
 import { ref, shallowRef } from 'vue';
 
 const deepTrackObject = ref({
@@ -10,23 +12,18 @@ const shallowTrackOfRef = shallowRef({
 </script>
 
 <template>
-    <h1>Chapter2 - reactivity</h1>
-    <div class="main-container">
-        <section class="deepTrackOfRef">
-            <h4>deep track of Ref</h4>
+    <Chapter number="2" container-title="reactivity">
+        <Block section-name="deep track of Ref">
             <p>number in an object: {{ deepTrackObject.number }}</p>
             <button @click="deepTrackObject.number++">increase number</button>
-        </section>
-        <section class="deepTrackOfRef">
-            <h4>shallow Ref</h4>
+        </Block>
+        <Block section-name="shallow Ref">
             <span>the change of number won't trigger update</span>
             <span>but the value will update and represented in next update</span>
             <p>number in an object: {{ shallowTrackOfRef.number }}</p>
             <button @click="shallowTrackOfRef.number++">increase number</button>
-        </section>
-    </div>
+        </Block>
+    </Chapter>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

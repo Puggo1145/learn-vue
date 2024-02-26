@@ -5,7 +5,10 @@
 </template>
 
 <script setup lang="ts">
-const { message } = defineProps(['message']);
+type Props = {
+    message: string
+}
+const { message } = defineProps<Props>();
 </script>
 
 <style scoped>

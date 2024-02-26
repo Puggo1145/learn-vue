@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import Chapter from './common/chapter.vue'
+import Block from './common/block.vue'
 import { ref, computed } from 'vue';
 import C3component from './innerComponent/C3component.vue'
+
 const isStyle = ref(true);
 const error = ref(false);
 
@@ -15,22 +18,18 @@ const switchButtonStatus = () => {
 </script>
 
 <template>
-    <h1>Chapter 3 - Class And Style Bind</h1>
-    <div class="main-container">
-        <section class="bindClassAndStyle">
-            <h4>bind HTML class with Computed Property</h4>
+    <Chapter number="3" container-title="Class And Style Bind">
+        <Block section-name="bind HTML class with Computed Property">
             <p :class="classObject">This text should be red if style is activated</p>
             <button @click="switchButtonStatus">Switch text status</button>
-        </section>
-        <section class="useArrayToRender">
-            <h4>use array+conditional expression to render</h4>
-            <p :class="[isStyle ? isStyle : '', 'text-error']">Same Style as section 1</p>
-        </section>
-        <section class="relationOfComponentAndTopElementClass">
-            <h4>inherit property from top component to inner element</h4>
+        </Block>
+        <Block section-name="use array+conditional expression to render">
+            <p :class="[isStyle ? isStyle : '', 'text-error']">Same Style as Block 1</p>
+        </Block>
+        <Block section-name="inherit property from top component to inner element">
             <C3component class="styleToInner"/>
-        </section>
-    </div>
+        </Block>
+    </Chapter>
 </template>
 
 

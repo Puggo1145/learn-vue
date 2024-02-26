@@ -21,18 +21,25 @@
 
 <style scoped>
 header {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    width: 100vw;
     padding: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
     border-bottom: 1px solid #eee;
+    background-color: #fff;
 }
 
 section {
     display: flex;
     gap: 8px;
     align-items: end;
+}
+section:first-child {
+    margin-right: 16px;
 }
 
 h2,
